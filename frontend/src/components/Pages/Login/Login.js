@@ -3,7 +3,7 @@ import {useForm} from 'react-hook-form';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import classes from './Login.module.css';
 import { useAuth } from '../../../Hooks/useAuth';
-import Input from '../../Input/Input';
+import Input from '../../Input/input';
 
 export default function Login() {
     const {

@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { add, getById, update } from '../../../Services/foodService';
 import InpContainer from '../../InputContainer/inputContainer';
-import Input from '../../Input/Input';
+import Input from '../../Input/input';
 import { uploadImage } from '../../../Services/uploadService';
 
 export default function Edit() {

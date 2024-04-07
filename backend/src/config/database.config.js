@@ -7,7 +7,7 @@ set('strictQuery', true);
 
 export const dataconnect = async () => {
     try {
-        connect(process.env.MONGO_URI, {});
+        connect('mongodb://localhost:27017/kimomo', {});
         await seedUsers();
         await seedFoods(); 
 

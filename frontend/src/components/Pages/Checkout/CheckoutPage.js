@@ -4,7 +4,7 @@ import { useAuth } from '../../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import Input from '../../Input/Input';
+import Input from '../../Input/input';
 import Button from '../../../components/Button/Button';
 import { createOrder } from '../../../Services/orderService';
 import classes from './checkoutPage.module.css';

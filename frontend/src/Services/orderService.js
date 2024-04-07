@@ -11,6 +11,18 @@ export const createOrder = async order => {
   }
 };
 
+export const completeOrder = async user => {
+  try {
+    
+    const { data } = axios.post('/api/orders/completeorder', user);
+
+    return data;
+  } catch (error) {
+
+  }
+};
+
+
 export const getNewOrderForCurrentUser = async () => {
   const { data } = await axios.get('/api/orders/newOrderForCurrentUser');
   return data;
@@ -44,7 +56,7 @@ export const refreshOrder = async () => {
 };
 
 export const trackOrderById = async orderId => {
-  const { data } = await axios.get('/api/orders/trackbyid' + orderId);
+  const { data } = await axios.get(`/api/orders/trackbyid/${orderId}`);
   return data;
 };
 

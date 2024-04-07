@@ -46,18 +46,20 @@
     cursor: pointer;
   }
 
-  .placeOrderbutton {
+  .placeOrderButton {
     padding: 1rem;
-    color: white;
-    background: #e72929;
+    color: #f0f0f0;
+    background-color: purple;
     display: block;
     width: 99%;
     border-radius: 1rem;
     text-align: center;
     justify-self: center;
+    transition: background-color 0.3s ease;
   }
 
-  .placeOrderbutton:hover {
-    opacity: 0.8;
+  .placeOrderButton:hover {
     cursor: pointer;
+    background-color: green;
+    color: #f0f0f0;
   }

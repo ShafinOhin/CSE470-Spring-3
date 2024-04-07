@@ -4,8 +4,6 @@ import { useAuth } from '../../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { toast } from 'react-toastify';
-import Title from '../../../components/Title/Title';
 import Input from '../../Input/Input';
 import Button from '../../../components/Button/Button';
 import { createOrder } from '../../../Services/orderService';
@@ -37,7 +35,6 @@ export default function CheckoutPage() {
           <div className={classes.inputs}>
             <Input
               defaultValue={user.name}
-              //label="Name"
               {...register('name')}
               error={errors.name}
             />
@@ -52,7 +49,7 @@ export default function CheckoutPage() {
               text="Place Order"
               width="100%"
               height="3rem"
-              backgroundColor= "#4c0179"
+              backgroundColor= "purple"
             />
           </div>
         </div>

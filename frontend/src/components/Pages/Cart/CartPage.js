@@ -63,8 +63,8 @@ export default function CartPage() {
                 <div className={classes.total}>
                     Total Price: Tk.{cart.totalPrice}
                 </div>
-                <div className="placeOrderButton">
-                    <Link to="/checkout"> Place Order </Link>
+                <div>
+                    <Link className={classes.placeOrderButton} to="/checkout"> Place Order </Link>
                 </div>
             </div>
 

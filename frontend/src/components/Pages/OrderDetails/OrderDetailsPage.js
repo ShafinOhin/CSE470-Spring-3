@@ -11,6 +11,8 @@ export default function OrderDetailsPage() {
   const { user } = useAuth();
   const { orderId } = useParams();
 
+  //console.log(orderId);
+
   useEffect(() => {
       if (user.admin && orderId) {
         trackOrderById(orderId).then(order => {

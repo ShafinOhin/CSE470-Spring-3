@@ -36,3 +36,14 @@ export const getPendingCallers = async () => {
     const {data} = await axios.get('api/users/getpendingcallers');
     return data;
 }
+
+export const getAllUser = async () => {
+    const {data} = await axios.get('/api/users/getAll');
+    return data;
+}
+
+export const updateAdmin = async (userId, isAdmin) => {
+    const response = await axios.put(`/api/users/${userId}`, { admin: isAdmin });
+    return response.data; 
+
+}

@@ -2,6 +2,7 @@ import { Router } from "express";
 import tkn from 'jsonwebtoken';
 import handler from 'express-async-handler';
 import { UserModel } from "../models/user.model.js";
+import adminMid from "../middleware/admin.mid.js";
 
 
 const router = Router();
@@ -71,6 +72,20 @@ router.get(
         res.send(userobjects);
     })
 )
+
+router.get('/getall', adminMid, handler(async(req, res) => {
+        const users = await UserModel.find({});
+        res.send(users);
+}));
+
+router.put('/:userId', handler(async (req, res) => {
+    const { userId } = req.params;
+    const { admin } = req.body;
+
+
+        const updatedUser = await UserModel.findByIdAndUpdate(userId, { admin }, { new: true });
+        res.json(updatedUser);
+}));
 
 const generate = user => {
     const token = tkn.sign ({

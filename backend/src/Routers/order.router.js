@@ -29,7 +29,7 @@ router.post(
   })
 );
 
-router.get(
+  router.get(
     '/track',
     handler(async (req, res) => {
       const user = await UserModel.findById(req.user.id);
@@ -48,12 +48,36 @@ router.get(
           await order.save();
         }
         else {
-          order.status = OrderStatus.RUNNING;
+          if(order.status != OrderStatus.NEW) {
+            order.status = OrderStatus.RUNNING;
+          }
           await order.save();
         }
       }
   
       if (!order) return res.send();
+  
+      return res.send(order);
+    })
+  );
+
+  router.post(
+    '/completeorder',
+    handler(async (req, res) => {
+      const user = await UserModel.findById(req.user.id);
+  
+      const filter = {
+        user: user._id,
+        status: { $ne: OrderStatus.COMPLETED },
+      };
+      
+      const order = await OrderModel.findOne(filter);
+  
+      if (!order) return res.send();
+
+      order.status = OrderStatus.COMPLETED;
+
+      await order.save();
   
       return res.send(order);
     })
@@ -78,7 +102,9 @@ router.get(
         await order.save();
       }
       else {
-        order.status = OrderStatus.RUNNING;
+        if(order.status != OrderStatus.NEW) {
+          order.status = OrderStatus.RUNNING;
+        }
         await order.save();
       }
 
@@ -103,7 +129,9 @@ router.get(
         await order.save();
       }
       else {
-        order.status = OrderStatus.RUNNING;
+        if(order.status != OrderStatus.NEW) {
+          order.status = OrderStatus.RUNNING;
+        }
         await order.save();
       }
   
@@ -192,7 +220,7 @@ router.get(
       const user = await UserModel.findById(req.user.id);
       const filter = {};
 
-      if (!user.isAdmin) filter.user = user._id;
+      if (!user.admin) filter.user = user._id;
       if (status) filter.status = status;
 
       const orders = await OrderModel.find(filter).sort('-createdAt');

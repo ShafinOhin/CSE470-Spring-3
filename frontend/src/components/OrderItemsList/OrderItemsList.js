@@ -20,9 +20,7 @@ export default function OrderItemsList({ order, isTracking = false, isAdmin = fa
         {order.items.map(item => (
           <tr key={item.food.id}>
             <td>
-              <Link to={`/food/${item.food.id}`}>
                 <img src={item.food.image} alt=' '/>
-              </Link>
             </td>
             <td>{item.food.name}</td>
             {

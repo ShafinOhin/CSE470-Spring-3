@@ -18,6 +18,7 @@ import ServeItemPage from './components/Pages/ServeItem/ServeItemPage';
 import PaymentPage from './components/Pages/Payment/PaymentPage';
 import CallWaiterPage from './components/Pages/CallWaiter/CallWaiterPage';
 import AnswerCallerPage from './components/Pages/AnswerCaller/AnswerCaller';
+import Employee from './components/Pages/Employee/Employee';
 
 export default function AppRoutes() {
   return (
@@ -29,6 +30,7 @@ export default function AppRoutes() {
         <Route path ="/register" element={<RegisterPage />} />
         <Route path ="/admin" element={<AuthRoute><Admin /></AuthRoute>} />
         <Route path ="/foodadmin" element={<AuthRoute><FoodAdmin /></AuthRoute>} />
+        <Route path ="/employees" element={<AuthRoute><Employee /></AuthRoute>} />
         <Route path ="/ordersadmin" element={<AuthRoute><OrdersAdmin /></AuthRoute>} />
         <Route path ="/callsadmin" element={<AuthRoute><CallsAdmin /></AuthRoute>} />
         <Route path ="/foodadd" element={<AuthRoute><Edit /></AuthRoute>} />

@@ -29,13 +29,13 @@ export const getNewOrderForCurrentUser = async () => {
 };
 
 export const approveOrder = async orderId => {
-  const {approved} = await axios.put('/api/orders/approveorder/' + orderId);
+  const approved = await axios.put('/api/orders/approveorder/' + orderId);
   return approved;
 }
 
 export const serveItem = async (orderId, itemFoodId) => {
-  const {approved} = await axios.put('/api/orders/serveitem/' + orderId + '/' + itemFoodId);
-  return approved;
+  const served = await axios.put('/api/orders/serveitem/' + orderId + '/' + itemFoodId);
+  return served;
 }
 
 export const pay = async paymentId => {

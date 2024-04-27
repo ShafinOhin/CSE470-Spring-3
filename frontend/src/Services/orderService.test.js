@@ -5,6 +5,7 @@ import {
   approveOrder,
   serveItem,
   getAll,
+  createOrder,
 } from './orderService';
 
 jest.mock('axios');
@@ -234,6 +235,5 @@ describe('Order Service API Functions', () => {
 
     expect(axios.put).toHaveBeenCalledWith('/api/orders/serveitem/' + orderId + '/' + itemFoodId);
   });
-
 
 });
